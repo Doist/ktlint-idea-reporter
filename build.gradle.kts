@@ -3,6 +3,7 @@ plugins {
     signing
     id("org.jetbrains.kotlin.jvm").version("1.6.10")
     id("io.github.gradle-nexus.publish-plugin").version("1.1.0")
+    id("org.jetbrains.dokka").version("1.6.0")
 }
 
 group = "com.doist"
@@ -18,6 +19,12 @@ dependencies {
 
 java {
     withSourcesJar()
+    withJavadocJar()
+}
+
+tasks.named<Jar>("javadocJar") {
+    from(tasks.dokkaJavadoc.get().outputDirectory.get())
+    dependsOn(tasks.dokkaJavadoc)
 }
 
 signing {
@@ -28,7 +35,6 @@ signing {
     }
     sign(publishing.publications)
 }
-
 
 publishing {
     publications {
