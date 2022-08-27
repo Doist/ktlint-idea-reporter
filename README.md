@@ -1,3 +1,5 @@
+> **Warning** — Not actively maintained.
+
 # Ktlint IDEA Reporter
 
 This [reporter](https://github.com/pinterest/ktlint#creating-a-reporter) improves [ktlint](https://github.com/pinterest/ktlint) output for better integration with IntelliJ IDEA based IDE.
